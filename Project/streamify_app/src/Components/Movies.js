@@ -58,24 +58,18 @@ const Movies = () => {
     return(
         <div>
             <form>
-                <div className='container'>
-                    <h5>Search for Movies</h5>
-                    <div className='mb-3'>
-                        <input type="text" placeholder='Search movie by title'
-                            value={searchTerm}
-                            onChange={handleChange} />
-                    </div>
-                    <button className='btn btn-primary mb-3' onClick={handleButtonClick}>Fetch Movie</button>
-                    {movies && (
-                        <div>
-                            {movies.map((movie) => (
-                                <MovieCard key={movie.id} movie={movie} />
-                            ))}
-                        </div>
-                    )}
-                </div>
+                <input type="text" placeholder='Search movie by title'
+                value={searchTerm}
+                onChange={handleChange} />
             </form>
-            
+            <button onClick={handleButtonClick}>Fetch Movie</button>
+            {movies && (
+                <div>
+                    {movies.map((movie) => (
+                        <MovieCard key={movie.id} movie={movie} />
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
